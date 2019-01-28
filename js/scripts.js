@@ -31,10 +31,23 @@ $(function(){
 
     // $("#result").append("<button onclick=\"alert('hello');\">" + newPlace.name + "</button>");
     $("#result").append("<button value=" + newPlace.id + ">" + newPlace.name + "</button>");
-    console.log(newPlace);
-    console.log(newPlace.id);
+    $("button").click(function(){
+      var buttonValue = this.value;
+      newPlacesDb.places.forEach(function(place){
+        if (buttonValue == place.id){
+         // console.log(place); replace with printed info!!!!!
+         $("#result").append(
+         "<li>" + place.landmarks + "</li>" +
+         "<li>" + place.people + "</li>" +
+         "<li>" + place.time + "</li>" +
+         "<li>" + place.notes + "</li>"
+          );
+        }
+      });
+      // console.log(this.value);
+      // console.log(newPlace.value); UNDEFINED
+      // console.log(newPlace.id.value);  UNDEFINED
+    });
   });
-  $("button").click(function(){
 
-  });
 });
