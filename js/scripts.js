@@ -23,14 +23,18 @@ function Place(name, landmarks, people, time, notes){
 }
 
 $(function(){
+  var newPlacesDb = new PlacesDatabase();
   $("#places").submit(function(event){
     event.preventDefault();
-    var newPlacesDb = new PlacesDatabase();
-    var newPlace = new Place($("input#name").val());
-    console.log(newPlace);
+    var newPlace = new Place($("input#name").val(), $("input#landmarks").val(), $("input#people").val(), $("input#time").val(), $("input#notes").val());
     newPlacesDb.addPlace(newPlace);
-    console.log(PlacesDatabase);
 
-    $("#result").text(newPlace.name);
+    // $("#result").append("<button onclick=\"alert('hello');\">" + newPlace.name + "</button>");
+    $("#result").append("<button value=" + newPlace.id + ">" + newPlace.name + "</button>");
+    console.log(newPlace);
+    console.log(newPlace.id);
+  });
+  $("button").click(function(){
+
   });
 });
