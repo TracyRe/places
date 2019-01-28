@@ -30,19 +30,17 @@ $(function(){
     newPlacesDb.addPlace(newPlace);
 
     // $("#result").append("<button onclick=\"alert('hello');\">" + newPlace.name + "</button>");
-    $("#result").append("<button value=" + newPlace.id + ">" + newPlace.name + "</button>");
+    $("#placeButtons").append("<button value=" + newPlace.id + ">" + newPlace.name + "</button>");
     $("button").click(function(){
       var buttonValue = this.value;
       newPlacesDb.places.forEach(function(place){
-        if (buttonValue == place.id){
-         // console.log(place); replace with printed info!!!!!
-         $("#result").append(
-         "<li>" + place.landmarks + "</li>" +
-         "<li>" + place.people + "</li>" +
-         "<li>" + place.time + "</li>" +
-         "<li>" + place.notes + "</li>"
-          );
+        var display = false;
+        console.log(display);
+        if ((display === false) && (buttonValue == place.id)){
+         $("#placeInfo").append("<h4>" + place.name + "</h4>" + "<ul><li>" + place.landmarks + "</li>" + "<li>" + place.people + "</li>" + "<li>" + place.time + "</li>" + "<li>" + place.notes + "</li></ul>");
         }
+        display = true;
+        console.log(display);
       });
       // console.log(this.value);
       // console.log(newPlace.value); UNDEFINED
