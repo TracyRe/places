@@ -1,0 +1,13 @@
+.place-card {
+  border:1px solid #00f;
+  border-radius: 6px;
+}
+
+.place-head {
+  background-color: #ddd;
+  color: #00f;
+}
+
+.place-details {
+  
+}
