@@ -26,10 +26,11 @@ $(document).ready(function() {
   var newPlacesDb = new PlacesDatabase();
   $("#places").submit(function(event){
     event.preventDefault();
+    debugger;
     var newPlace = new Place($("input#name").val(), $("input#landmarks").val(), $("input#people").val(), $("input#time").val(), $("input#notes").val());
     newPlacesDb.addPlace(newPlace);
-
-    // $("#result").append("<button onclick=\"alert('hello');\">" + newPlace.name + "</button>");
-    $("#result").append("<div class=\"place-card\" id=" + newPlace.name + "-card" + "div class=\"place-head\">" + newPlace.name + "</div>  <div class=\"place-details\" <ul><li>" + place.landmarks + "</li> <li>" + place.people + "</li> <li>" + place.time + "</li><li>" + place.notes + "</li> </ul> </div></div>");
-      });
+    newPlacesDb.places.forEach(function(place) {
+    $("#result").append("<div class=\"place-card\" id=" + newPlace.name + "-card\"><div class=\"place-head\">" + newPlace.name + "</div>  <div class=\"place-details\" <ul><li>" + place.landmarks + "</li> <li>" + place.people + "</li> <li>" + place.time + "</li><li>" + place.notes + "</li> </ul> </div></div>");
+      })
+    });
   });
